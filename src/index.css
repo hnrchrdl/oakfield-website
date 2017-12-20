@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'AlternateGothicFSNo2';
+  src: url('fonts/alternategothicfsno2-webfont-webfont.eot');
+  src: url('fonts/alternategothicfsno2-webfont-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/alternategothicfsno2-webfont-webfont.woff') format('woff'),
+    url('fonts/alternategothicfsno2-webfont-webfont.ttf') format('truetype'),
+    url('fonts/alternategothicfsno2-webfont-webfont.svg#AlternateGotNo1DRegular')
+      format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body,
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'AlternateGothicFSNo2', 'Arial Narrow', 'Arial', sans-serif;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.error {
+  color: #ab0018;
+  text-align: center;
+}

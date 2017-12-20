@@ -1,0 +1,102 @@
+.overlay {
+  position: relative;
+  padding: 130px 20px;
+}
+
+.overlay .overlay-item {
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.overlay .logo {
+  width: 100%;
+}
+
+.overlay .date {
+  width: 70%;
+}
+
+@media screen and (max-width: 600px) {
+  .overlay .date {
+    width: 90%;
+  }
+}
+
+.overlay .info {
+  width: 80%;
+}
+
+@media screen and (max-width: 600px) {
+  .overlay .info {
+    width: 100%;
+  }
+}
+
+.overlay .social-media {
+  width: 50%;
+}
+
+@media screen and (max-width: 1200px) {
+  .overlay .social-media {
+    width: 60%;
+  }
+}
+
+.overlay .social-media .icon {
+  width: 15%;
+  margin: 5px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 1200px) {
+  .overlay .social-media .logo {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .overlay .social-media .logo {
+    width: 20%;
+  }
+}
+
+.overlay .call-to-action {
+  width: 40%;
+}
+
+@media screen and (max-width: 600px) {
+  .overlay .call-to-action {
+    width: 80%;
+  }
+}
+
+.overlay call-to-action-info {
+  margin: -20px auto;
+  width: 60%;
+}
+
+@media screen and (max-width: 600px) {
+  .overlay .call-to-action-info {
+    width: 80%;
+  }
+}
+.overlay .more {
+  position: relative;
+  margin-top: 70px;
+  width: 10%;
+  animation: fade-out-and-in 2s ease-in-out infinite;
+  cursor: pointer;
+}
+@keyframes fade-out-and-in {
+  0% {
+    transform: scale(1) transition(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(0.9) transition(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) transition(0);
+    opacity: 0.6;
+  }
+}

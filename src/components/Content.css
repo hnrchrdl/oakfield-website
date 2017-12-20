@@ -1,0 +1,15 @@
+.content {
+  position: relative;
+}
+.overlay-wrapper {
+  height: 100vh;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.page-wrapper {
+  background-color: #fff;
+}
+.footer-wrapper {
+  background-color: #fff;
+}

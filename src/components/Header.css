@@ -1,0 +1,47 @@
+.header-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.header-wrapper.fixed {
+  position: fixed;
+  z-index: 10000;
+}
+.header-wrapper.hidden {
+  display: none;
+}
+.header-wrapper .logo {
+  height: 40px;
+  color: #222;
+  text-decoration: none;
+  font-size: 40px;
+  margin: 10px 20px;
+  cursor: pointer;
+  float: left;
+}
+.header-items {
+  float: right;
+  margin: 0 20px;
+}
+.header-item {
+  display: inline-block;
+}
+.header-item a {
+  padding: 0.3em 1em;
+  font-size: 1.8em;
+  text-decoration: none;
+  color: #222;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.header-item a.active {
+  color: #7daa00;
+}
+.header-item.hidden {
+  display: none;
+}
