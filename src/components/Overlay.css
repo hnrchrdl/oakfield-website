@@ -69,8 +69,8 @@
   }
 }
 
-.overlay call-to-action-info {
-  margin: -20px auto;
+.overlay .call-to-action-info {
+  margin: -30px auto;
   width: 60%;
 }
 

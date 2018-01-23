@@ -1,8 +1,7 @@
-import './App.css'
-
 import React, { Component } from 'react'
 
 import Content from './Content'
+import Loading from './Loading'
 import { PAGE_TOP } from '../env'
 import StaticTeaser from './StaticTeaser'
 import { getAppSetup } from '../utils/api'
@@ -73,11 +72,7 @@ class App extends Component {
     return <div class="container error">{this.state.error.toString()}</div>
   }
   renderLoading() {
-    return (
-      <div className="screen-loading">
-        <div className="inner" />
-      </div>
-    )
+    return <Loading />
   }
 }
 

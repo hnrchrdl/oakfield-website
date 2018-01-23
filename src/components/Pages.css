@@ -1,3 +1,7 @@
 .container h1 {
   text-align: center;
 }
+.loading-wrapper {
+  position: relative;
+  height: 120px;
+}

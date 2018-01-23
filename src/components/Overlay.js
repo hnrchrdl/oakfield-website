@@ -1,8 +1,6 @@
 import './Overlay.css'
 
 import {
-  PAGE_HEADER,
-  PAGE_TOP,
   PAGE_WRAPPER,
   SCROLL_DURATION,
   SCROLL_OFFSET,

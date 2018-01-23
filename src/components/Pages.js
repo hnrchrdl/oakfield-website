@@ -3,6 +3,7 @@ import './Pages.css'
 import React, { Component } from 'react'
 
 import { Element } from 'react-scroll'
+import Loading from './Loading'
 import { getPages } from '../utils/api'
 
 class Pages extends Component {
@@ -13,7 +14,8 @@ class Pages extends Component {
   componentDidMount() {
     getPages()
       .then(pages => {
-        this.setState({ loading: false, pages })
+        const loading = false
+        this.setState({ pages, loading })
       })
       .catch(error => {
         this.setState({ error })
@@ -21,44 +23,56 @@ class Pages extends Component {
   }
 
   render() {
-    console.log(this.props.mainMenu, this.state.pages)
     const menu = this.props.mainMenu.map(menuItem => ({
       ...menuItem,
       page: this.state.pages
         ? this.state.pages.find(p => menuItem.object_id === p.id.toString())
         : null
     }))
+
     if (!this.state.loading) {
-      return (
-        <div className="pages">
-          {menu.map(menuItem => (
-            <Element
-              id={`page-${menuItem.object_id}`}
-              name={menuItem.ID.toString()}
-              key={menuItem.ID}
-            >
-              {menuItem.page ? (
-                <div className="container">
-                  <h1>{menuItem.page.title.rendered}</h1>
-                </div>
-              ) : (
-                <div className="container error">
-                  Seite {menuItem.title} konnte nicht gefunden werden.
-                </div>
-              )}
-            </Element>
-          ))}
-        </div>
-      )
+      return this.renderPages(menu)
+    } else if (this.state.error) {
+      return this.renderError()
+    } else if (this.state.loading) {
+      return this.renderLoading()
     }
-    if (this.state.error) {
-      return (
-        <div className="container error">{this.state.error.toString()}</div>
-      )
-    }
-    if (this.state.loading) {
-      return <div className="container">loading pages...</div>
-    }
+  }
+
+  renderPages(menu) {
+    return (
+      <div className="pages">
+        {menu.map(menuItem => (
+          <Element
+            id={`page-${menuItem.object_id}`}
+            name={menuItem.ID.toString()}
+            key={menuItem.ID}
+          >
+            {menuItem.page ? (
+              <div className="container">
+                <h1>{menuItem.page.title.rendered}</h1>
+              </div>
+            ) : (
+              <div className="container error">
+                Seite {menuItem.title} konnte nicht gefunden werden.
+              </div>
+            )}
+          </Element>
+        ))}
+      </div>
+    )
+  }
+
+  renderError() {
+    return <div className="container error">{this.state.error.toString()}</div>
+  }
+
+  renderLoading() {
+    return (
+      <div className="loading-wrapper">
+        <Loading />
+      </div>
+    )
   }
 }
 export default Pages
