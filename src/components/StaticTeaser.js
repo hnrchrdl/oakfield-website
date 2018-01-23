@@ -10,7 +10,6 @@ const StaticTeaser = props => {
         video="true"
         autobuffer="true"
         muted={true}
-        loop={true}
         preload="none"
         ref={el => {
           if (el) {

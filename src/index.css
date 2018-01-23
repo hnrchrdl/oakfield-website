@@ -1,12 +1,22 @@
 @font-face {
   font-family: 'AlternateGothicFSNo2';
-  src: url('fonts/alternategothicfsno2-webfont-webfont.eot');
-  src: url('fonts/alternategothicfsno2-webfont-webfont.eot?#iefix')
+  src: url('fonts/alternategothicfsno2-webfont.eot');
+  src: url('fonts/alternategothicfsno2-webfont.eot?#iefix')
       format('embedded-opentype'),
-    url('fonts/alternategothicfsno2-webfont-webfont.woff') format('woff'),
-    url('fonts/alternategothicfsno2-webfont-webfont.ttf') format('truetype'),
-    url('fonts/alternategothicfsno2-webfont-webfont.svg#AlternateGotNo1DRegular')
+    url('fonts/alternategothicfsno2-webfont.woff') format('woff'),
+    url('fonts/alternategothicfsno2-webfont.ttf') format('truetype'),
+    url('fonts/alternategothicfsno2-webfont.svg#AlternateGotNo1DRegular')
       format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Calluna-Regular';
+  src: url('fonts/Calluna-Regular-webfont.eot');
+  src: url('fonts/Calluna-Regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/Calluna-Regular-webfont.woff') format('woff'),
+    url('fonts/Calluna-Regular-webfont.ttf') format('truetype'), format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,7 +34,7 @@ html {
   padding: 20px;
   margin: 0 auto;
 }
-.error {
-  color: #ab0018;
-  text-align: center;
+.loading-wrapper {
+  position: relative;
+  height: 120px;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Content from './Content'
+import Error from './Error'
 import Loading from './Loading'
 import { PAGE_TOP } from '../env'
 import StaticTeaser from './StaticTeaser'
@@ -69,7 +70,7 @@ class App extends Component {
     )
   }
   renderError() {
-    return <div class="container error">{this.state.error.toString()}</div>
+    return <Error errorMsg={this.state.error.toString()} />
   }
   renderLoading() {
     return <Loading />

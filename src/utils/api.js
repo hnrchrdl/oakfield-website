@@ -1,4 +1,4 @@
-import { BASE_URL, PAGES_PATH, SETUP_PATH } from '../env'
+import { BASE_URL, NEWS_PATH, PAGES_PATH, SETUP_PATH } from '../env'
 
 import axios from 'axios'
 
@@ -22,6 +22,18 @@ export const getPages = _ => {
     })
     .catch(error => {
       console.error('Api: Error when fetching pages', error)
+      throw error
+    })
+}
+
+export const getNews = _ => {
+  return axios
+    .get(BASE_URL + NEWS_PATH)
+    .then(res => {
+      return res.data.filter(item => item.status === 'publish')
+    })
+    .catch(error => {
+      console.error('Api: Error when fetching news', error)
       throw error
     })
 }

@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 import { Element } from 'react-scroll'
 import Loading from './Loading'
+import NewsList from './NewsList'
 import { getPages } from '../utils/api'
 
 class Pages extends Component {
@@ -50,7 +51,8 @@ class Pages extends Component {
           >
             {menuItem.page ? (
               <div className="container">
-                <h1>{menuItem.page.title.rendered}</h1>
+                {this.renderPageTitle(menuItem.page.title.rendered)}
+                {this.renderPageContent(menuItem.page.slug)}
               </div>
             ) : (
               <div className="container error">
@@ -61,6 +63,18 @@ class Pages extends Component {
         ))}
       </div>
     )
+  }
+
+  renderPageTitle(title) {
+    return <h1 className="title">{title}</h1>
+  }
+  renderPageContent(slug) {
+    switch (slug) {
+      case 'news':
+        return <NewsList />
+      default:
+        return null
+    }
   }
 
   renderError() {

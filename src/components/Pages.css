@@ -1,7 +1,4 @@
-.container h1 {
+.pages h1 {
   text-align: center;
-}
-.loading-wrapper {
-  position: relative;
-  height: 120px;
+  font-size: 3em;
 }
