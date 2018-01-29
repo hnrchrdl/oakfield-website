@@ -1,9 +1,11 @@
 import {
   ARTIST_PATH,
   BASE_URL,
+  FAQ_PATH,
   NEWS_PATH,
   PAGES_PATH,
-  SETUP_PATH
+  SETUP_PATH,
+  TICKET_PATH
 } from '../env'
 
 import axios from 'axios'
@@ -52,6 +54,30 @@ export const getArtists = _ => {
     })
     .catch(error => {
       console.error('Api: Error when fetching artists', error)
+      throw error
+    })
+}
+
+export const getTickets = _ => {
+  return axios
+    .get(BASE_URL + TICKET_PATH)
+    .then(res => {
+      return res.data.filter(item => item.status === 'publish')
+    })
+    .catch(error => {
+      console.error('Api: Error when fetching tickets', error)
+      throw error
+    })
+}
+
+export const getFAQ = _ => {
+  return axios
+    .get(BASE_URL + FAQ_PATH)
+    .then(res => {
+      return res.data.filter(item => item.status === 'publish')
+    })
+    .catch(error => {
+      console.error('Api: Error when fetching faqs', error)
       throw error
     })
 }

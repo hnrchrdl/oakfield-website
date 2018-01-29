@@ -5,6 +5,8 @@ export const SETUP_PATH = '/wp-json/oakfield/v1/setup'
 export const PAGES_PATH = '/wp-json/wp/v2/pages'
 export const NEWS_PATH = '/wp-json/wp/v2/posts'
 export const ARTIST_PATH = '/wp-json/wp/v2/artist'
+export const TICKET_PATH = '/wp-json/wp/v2/tickets'
+export const FAQ_PATH = '/wp-json/wp/v2/faq'
 
 // Link behavior
 export const SCROLL_OFFSET = -60

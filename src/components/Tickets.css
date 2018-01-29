@@ -1,0 +1,35 @@
+.ticket-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.ticket-list a {
+  text-decoration: none;
+}
+
+.ticket {
+  padding: 50px;
+  font-size: 2.5em;
+  text-decoration: none !important;
+  text-align: center;
+  padding: 50px 0 100px 0;
+  width: 300px;
+  margin: 20px;
+  height: 200px;
+  border: 3px solid #222;
+  /* background-color: #7daa00; */
+  background-color: #fff;
+  color: #222;
+}
+.ticket:hover .ticket-title {
+}
+.ticket-title {
+  color: #222;
+  font-size: 2em;
+  padding-bottom: 40px;
+}
+.ticket-description {
+  font-size: 0.6em;
+  margin-top: 40px;
+  color: #888;
+}

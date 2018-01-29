@@ -6,6 +6,7 @@ import ArtistList from './ArtistList'
 import { Element } from 'react-scroll'
 import Loading from './Loading'
 import NewsList from './NewsList'
+import Tickets from './Tickets'
 import { getPages } from '../utils/api'
 
 class Pages extends Component {
@@ -79,6 +80,8 @@ class Pages extends Component {
         return <NewsList />
       case 'kuenstler':
         return <ArtistList />
+      case 'tickets':
+        return <Tickets />
       default:
         return null
     }
