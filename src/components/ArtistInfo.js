@@ -8,7 +8,10 @@ export default props => {
     return (
       <Modal handleModalClose={props.handleArtistInfoHide}>
         <div className="container">
-          <h1 className="artist-info">{props.artist.title.rendered}</h1>
+          <h1 className="artist-info">
+            {props.artist.title.rendered}
+            {props.artist.from && <span> ({props.artist.from})</span>}
+          </h1>
           <div className="artist-info-wrapper">
             <img
               className="artist-info-image"

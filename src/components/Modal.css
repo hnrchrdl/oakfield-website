@@ -6,6 +6,7 @@
   left: 0;
   background-color: rgba(10, 10, 10, 0.97);
   color: #fff;
+  overflow-y: auto;
 }
 .exit {
   position: absolute;
