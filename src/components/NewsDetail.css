@@ -1,8 +1,23 @@
+.news-detail {
+  padding: 100px 0;
+}
+.news-detail:first-child {
+  padding: 0 0 100px;
+}
+.news-detail:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
 .news-detail .title {
-  font-size: 2em;
+  font-size: 2.4em;
 }
 
 .news-detail .content {
   font-family: 'Calluna Regular', serif;
   font-size: 1.3em;
+  text-align: justify;
+  text-justify: newspaper;
+}
+.featured-image {
+  width: 100%;
 }

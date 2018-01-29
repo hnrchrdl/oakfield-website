@@ -24,25 +24,29 @@ export default class NewsList extends Component {
   }
 
   render() {
-    const news = this.state.news
+    const { news, loading, error } = this.state
 
-    if (this.state.news && !this.state.loading) {
+    if (news && !loading) {
       return this.renderNews(news)
-    } else if (this.state.error) {
+    } else if (error) {
       return this.renderError()
-    } else if (this.state.loading) {
+    } else if (loading) {
       return this.renderLoading()
     }
   }
 
   renderNews(news) {
-    return (
-      <div className="news-list">
-        {news.map(newsDetail => (
-          <NewsDetail key="newsDetail.id" news={newsDetail} />
-        ))}
-      </div>
-    )
+    if (news.length > 0) {
+      return (
+        <div className="news-list">
+          {news.map(newsDetail => (
+            <NewsDetail key={newsDetail.id} news={newsDetail} />
+          ))}
+        </div>
+      )
+    } else {
+      return <div>Keine Beiträge vorhanden.</div>
+    }
   }
 
   renderError() {

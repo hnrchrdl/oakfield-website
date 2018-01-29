@@ -1,0 +1,7 @@
+.artist-list {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; */
+  overflow: auto;
+  width: 100%;
+}

@@ -2,6 +2,7 @@ import './Pages.css'
 
 import React, { Component } from 'react'
 
+import ArtistList from './ArtistList'
 import { Element } from 'react-scroll'
 import Loading from './Loading'
 import NewsList from './NewsList'
@@ -45,20 +46,24 @@ class Pages extends Component {
       <div className="pages">
         {menu.map(menuItem => (
           <Element
+            className="page-wrapper"
+            key={menuItem.ID}
             id={`page-${menuItem.object_id}`}
             name={menuItem.ID.toString()}
-            key={menuItem.ID}
           >
-            {menuItem.page ? (
-              <div className="container">
-                {this.renderPageTitle(menuItem.page.title.rendered)}
-                {this.renderPageContent(menuItem.page.slug)}
-              </div>
-            ) : (
-              <div className="container error">
-                Seite {menuItem.title} konnte nicht gefunden werden.
-              </div>
-            )}
+            <div className="page">
+              {menuItem.page ? (
+                <div className="container">
+                  {this.renderPageTitle(menuItem.page.title.rendered)}
+                  {this.renderPageContent(menuItem.page.slug)}
+                </div>
+              ) : (
+                <div className="container error">
+                  Seite {menuItem.title} konnte nicht gefunden werden.
+                </div>
+              )}
+            </div>
+            <div className="page-pusher" />
           </Element>
         ))}
       </div>
@@ -72,6 +77,8 @@ class Pages extends Component {
     switch (slug) {
       case 'news':
         return <NewsList />
+      case 'kuenstler':
+        return <ArtistList />
       default:
         return null
     }

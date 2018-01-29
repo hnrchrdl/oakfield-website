@@ -2,3 +2,10 @@
   text-align: center;
   font-size: 3em;
 }
+.page {
+  background-color: #fff;
+  padding: 70px 0 100px;
+}
+.page-pusher {
+  height: 500px;
+}

@@ -1,4 +1,10 @@
-import { BASE_URL, NEWS_PATH, PAGES_PATH, SETUP_PATH } from '../env'
+import {
+  ARTIST_PATH,
+  BASE_URL,
+  NEWS_PATH,
+  PAGES_PATH,
+  SETUP_PATH
+} from '../env'
 
 import axios from 'axios'
 
@@ -34,6 +40,18 @@ export const getNews = _ => {
     })
     .catch(error => {
       console.error('Api: Error when fetching news', error)
+      throw error
+    })
+}
+
+export const getArtists = _ => {
+  return axios
+    .get(BASE_URL + ARTIST_PATH)
+    .then(res => {
+      return res.data.filter(item => item.status === 'publish')
+    })
+    .catch(error => {
+      console.error('Api: Error when fetching artists', error)
       throw error
     })
 }
