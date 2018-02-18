@@ -19,12 +19,12 @@
   border: 3px solid #222;
   /* background-color: #7daa00; */
   background-color: #fff;
-  color: #222;
+  color: #1b1b1b;
 }
 .ticket:hover .ticket-title {
 }
 .ticket-title {
-  color: #222;
+  color: #1b1b1b;
   font-size: 2em;
   padding-bottom: 40px;
 }

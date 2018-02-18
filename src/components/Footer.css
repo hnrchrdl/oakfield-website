@@ -1,5 +1,23 @@
 .footer {
   padding: 50px 20px;
-  background-color: #7daa00;
-  color: #fff;
+  background-color: #eceef0;
+  color: #6b6b6b;
+}
+.info-text {
+  text-align: center;
+  padding: 20px;
+}
+.links {
+  color: #6b6b6b;
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.image {
+  height: 50px;
+}
+.image img {
+  height: 100%;
 }

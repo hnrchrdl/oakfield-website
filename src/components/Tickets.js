@@ -15,7 +15,6 @@ export default class Tickets extends Component {
   componentDidMount() {
     getTickets()
       .then(tickets => {
-        console.log(tickets)
         const loading = false
         this.setState({ tickets, loading })
       })

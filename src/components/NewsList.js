@@ -16,7 +16,6 @@ export default class NewsList extends Component {
   componentDidMount() {
     getNews()
       .then(news => {
-        console.log(news)
         const loading = false
         this.setState({ news, loading })
       })

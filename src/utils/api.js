@@ -2,9 +2,11 @@ import {
   ARTIST_PATH,
   BASE_URL,
   FAQ_PATH,
+  MEDIENPARTNER_PATH,
   NEWS_PATH,
   PAGES_PATH,
   SETUP_PATH,
+  SPONSOR_PATH,
   TICKET_PATH
 } from '../env'
 
@@ -78,6 +80,30 @@ export const getFAQ = _ => {
     })
     .catch(error => {
       console.error('Api: Error when fetching faqs', error)
+      throw error
+    })
+}
+
+export const getSponsoren = _ => {
+  return axios
+    .get(BASE_URL + SPONSOR_PATH)
+    .then(res => {
+      return res.data.filter(item => item.status === 'publish')
+    })
+    .catch(error => {
+      console.error('Api: Error when fetching sponsors', error)
+      throw error
+    })
+}
+
+export const getMedienpartner = _ => {
+  return axios
+    .get(BASE_URL + MEDIENPARTNER_PATH)
+    .then(res => {
+      return res.data.filter(item => item.status === 'publish')
+    })
+    .catch(error => {
+      console.error('Api: Error when fetching mediapartner', error)
       throw error
     })
 }

@@ -16,7 +16,7 @@
 }
 .header-wrapper .logo {
   height: 40px;
-  color: #222;
+  color: #1b1b1b;
   text-decoration: none;
   font-size: 40px;
   margin: 10px 20px;
@@ -34,7 +34,7 @@
   padding: 0.3em 1em;
   font-size: 1.8em;
   text-decoration: none;
-  color: #222;
+  color: #1b1b1b;
   border-bottom: 3px solid transparent;
   cursor: pointer;
 }
@@ -43,5 +43,51 @@
   color: #7daa00;
 }
 .header-item.hidden {
+  display: none !important;
+}
+.header-items.big {
   display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-items.big {
+    display: block;
+  }
+  .header-items.small {
+    display: none;
+  }
+}
+.burger-wrapper {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+.alt-menu {
+  position: fixed;
+  top: 61px;
+  right: 0px;
+  padding: 30px 150px 0 0;
+  background-color: #222;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  bottom: 0;
+}
+.alt-menu.collapsed {
+  transform: translate(100%);
+}
+.alt-menu .header-item {
+  display: block;
+  margin: 20px 0;
+}
+.alt-menu .header-item a {
+  color: #fff;
+  font-size: 2em;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }

@@ -3,7 +3,9 @@ import './Pages.css'
 import React, { Component } from 'react'
 
 import ArtistList from './ArtistList'
+import DefaultPage from './DefaultPage'
 import { Element } from 'react-scroll'
+import Faq from './Faq'
 import Loading from './Loading'
 import NewsList from './NewsList'
 import Tickets from './Tickets'
@@ -45,7 +47,7 @@ class Pages extends Component {
   renderPages(menu) {
     return (
       <div className="pages">
-        {menu.map(menuItem => (
+        {menu.map((menuItem, idx) => (
           <Element
             className="page-wrapper"
             key={menuItem.ID}
@@ -56,7 +58,7 @@ class Pages extends Component {
               {menuItem.page ? (
                 <div className="container">
                   {this.renderPageTitle(menuItem.page.title.rendered)}
-                  {this.renderPageContent(menuItem.page.slug)}
+                  {this.renderPageContent(menuItem.page)}
                 </div>
               ) : (
                 <div className="container error">
@@ -65,6 +67,7 @@ class Pages extends Component {
               )}
             </div>
             <div className="page-pusher" />
+            {/* {idx !== menu.length - 1 && <div className="divider" />} */}
           </Element>
         ))}
       </div>
@@ -74,16 +77,18 @@ class Pages extends Component {
   renderPageTitle(title) {
     return <h1 className="title">{title}</h1>
   }
-  renderPageContent(slug) {
-    switch (slug) {
+  renderPageContent(page) {
+    switch (page.slug) {
       case 'news':
         return <NewsList />
       case 'kuenstler':
         return <ArtistList />
       case 'tickets':
         return <Tickets />
+      case 'faq':
+        return <Faq />
       default:
-        return null
+        return <DefaultPage page={page} />
     }
   }
 

@@ -17,14 +17,12 @@ export default class ArtistList extends Component {
   }
 
   showArtistInfo = artist => {
-    console.log(artist)
     this.setState({
       artistInfo: artist
     })
   }
 
   hideArtistInfo = () => {
-    console.log('hide')
     this.setState({
       artistInfo: null
     })
@@ -33,7 +31,6 @@ export default class ArtistList extends Component {
   componentDidMount() {
     getArtists()
       .then(artists => {
-        console.log('artists', artists)
         const loading = false
         this.setState({ artists, loading })
       })

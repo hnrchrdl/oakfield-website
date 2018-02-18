@@ -1,18 +1,20 @@
-.news-detail {
+.faq {
   padding: 50px 0 20px;
 }
-.news-detail:first-child {
+.faq:first-child {
   padding: 0 0 50px;
 }
-.news-detail:not(:last-child) {
+.faq:not(:last-child) {
   border-bottom: 1px solid #ddd;
 }
-
-.news-detail .title {
+.faq-container {
+  padding-top: 20px;
+}
+.faq .title {
   font-size: 2.4em;
 }
 
-.news-detail .content {
+.faq .content {
   font-family: 'Calluna Regular', serif;
   font-size: 1.3em;
   text-align: justify;
