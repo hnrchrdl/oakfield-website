@@ -1,0 +1,17 @@
+.impressum-container h1 {
+  text-align: center;
+  font-size: 3em;
+}
+.impressum-content {
+  font-size: 1.3em;
+  font-family: 'Calluna Regular', serif;
+  text-align: justify;
+  text-justify: newspaper;
+}
+.impressum-content h1,
+.impressum-content h2,
+.impressum-content h3,
+.impressum-content h4,
+.impressum-content h5 {
+  font-family: 'AlternateGothicFSNo2', 'Arial Narrow', 'Arial', sans-serif;
+}

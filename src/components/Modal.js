@@ -4,7 +4,6 @@ import IconExit from '../graphics/icon-exit'
 import React from 'react'
 
 export default props => {
-  console.log(props.handleModalClose)
   return (
     <div className="modal">
       {props.children}

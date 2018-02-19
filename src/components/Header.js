@@ -77,7 +77,7 @@ export class Header extends Component {
     document.removeEventListener('mousedown', this.handleDocumentClick)
     setTimeout(_ => {
       this.hideMenu()
-    }, 300)
+    }, 50)
   }
 
   renderHeaderItems() {

@@ -8,8 +8,14 @@ import Header from './Header'
 import Overlay from './Overlay'
 import Pages from './Pages'
 import React from 'react'
+import { Route } from 'react-router-dom'
+
+const BASE_PATHS = ['/', '/news', '/kuenstler', '/tickets', '/faq', '/bewerben']
 
 const Content = props => {
+  const impressum = props.pages
+    ? props.pages.find(page => page.slug === 'impressum')
+    : null
   return (
     <div className="content">
       <Element id={PAGE_TOP} name={PAGE_TOP} className="overlay-wrapper">
@@ -23,11 +29,24 @@ const Content = props => {
           handleSetActive={props.handleSetActive}
         />
       </Element>
-      <Element id={PAGE_WRAPPER} name={PAGE_WRAPPER} className="page-wrapper">
-        <Pages mainMenu={props.mainMenu} />
-      </Element>
+      {BASE_PATHS.map(path => (
+        <Route
+          key={path}
+          exact
+          path={path}
+          render={() => (
+            <Element
+              id={PAGE_WRAPPER}
+              name={PAGE_WRAPPER}
+              className="page-wrapper"
+            >
+              <Pages pages={props.pages} mainMenu={props.mainMenu} />
+            </Element>
+          )}
+        />
+      ))}
       <div className="footer-wrapper">
-        <Footer />
+        <Footer impressum={impressum} />
       </div>
     </div>
   )

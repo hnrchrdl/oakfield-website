@@ -3,16 +3,19 @@ import './Footer.css'
 import React, { Component } from 'react'
 import { getMedienpartner, getSponsoren } from '../utils/api'
 
+import Impressum from './Impressum'
+import Modal from './Modal'
+
 export default class Footer extends Component {
   state = {
     sponsors: [],
-    partners: []
+    partners: [],
+    showImpressum: false
   }
 
   componentDidMount() {
     Promise.all([getSponsoren(), getMedienpartner()]).then(
       ([sponsors, partners]) => {
-        console.log(sponsors, partners)
         this.setState({
           sponsors: sponsors,
           partners: partners
@@ -21,7 +24,6 @@ export default class Footer extends Component {
     )
   }
   render() {
-    console.log(this.state.partners)
     return (
       <div className="footer">
         <div className="container">
@@ -47,13 +49,29 @@ export default class Footer extends Component {
             Alle Rechte vorbehalten © 2018 Oakfield Festival.
           </div>
           <div className="info-text links">
-            <a href="kontakt">Kontakt</a> |
-            <a href="impressum">Impressum</a> |
-            <a href="datenschutz">Datenschutz</a> |
-            <a href="Presse">Presse</a> |
-            <a href="AGB">AGB</a>
+            <a href="#">Kontakt</a> |
+            <a
+              href=""
+              onClick={e => {
+                e.preventDefault()
+                this.setState({ showImpressum: true })
+              }}
+            >
+              Impressum
+            </a>{' '}
+            |
+            <a href="#">Datenschutz</a> |
+            <a href="#">Presse</a> |
+            <a href="#">AGB</a>
           </div>
         </div>
+        {this.state.showImpressum && (
+          <Modal
+            handleModalClose={_ => this.setState({ showImpressum: false })}
+          >
+            <Impressum page={this.props.impressum} />
+          </Modal>
+        )}
       </div>
     )
   }

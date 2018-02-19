@@ -12,36 +12,15 @@ import Tickets from './Tickets'
 import { getPages } from '../utils/api'
 
 class Pages extends Component {
-  state = {
-    loading: true
-  }
-
-  componentDidMount() {
-    getPages()
-      .then(pages => {
-        const loading = false
-        this.setState({ pages, loading })
-      })
-      .catch(error => {
-        this.setState({ error })
-      })
-  }
-
   render() {
     const menu = this.props.mainMenu.map(menuItem => ({
       ...menuItem,
-      page: this.state.pages
-        ? this.state.pages.find(p => menuItem.object_id === p.id.toString())
+      page: this.props.pages
+        ? this.props.pages.find(p => menuItem.object_id === p.id.toString())
         : null
     }))
 
-    if (!this.state.loading) {
-      return this.renderPages(menu)
-    } else if (this.state.error) {
-      return this.renderError()
-    } else if (this.state.loading) {
-      return this.renderLoading()
-    }
+    return this.renderPages(menu)
   }
 
   renderPages(menu) {
