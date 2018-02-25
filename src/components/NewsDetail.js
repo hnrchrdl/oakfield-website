@@ -12,7 +12,7 @@ export default props => (
     )}
     <h2 className="title">{props.news.title.rendered}</h2>
     <div className="content">
-      <div dangerouslySetInnerHTML={{ __html: props.news.excerpt.rendered }} />
+      {/* <div dangerouslySetInnerHTML={{ __html: props.news.excerpt.rendered }} /> */}
       <div dangerouslySetInnerHTML={{ __html: props.news.content.rendered }} />
     </div>
   </div>

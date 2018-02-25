@@ -23,9 +23,10 @@ export default class Tickets extends Component {
 
   render() {
     const { tickets, loading, error } = this.state
+    const { page } = this.props
 
     if (tickets && !loading) {
-      return this.renderTickets(tickets)
+      return this.renderTickets(tickets, page)
     } else if (error) {
       return this.renderError()
     } else if (loading) {
@@ -33,19 +34,27 @@ export default class Tickets extends Component {
     }
   }
 
-  renderTickets(tickets) {
+  renderTickets(tickets, page) {
     if (tickets.length > 0) {
       return (
-        <div className="ticket-list">
-          {tickets.map(ticket => (
-            <a key={ticket.id} href={ticket.link}>
-              <div className="ticket">
-                <div className="ticket-title">{ticket.title.rendered}</div>
-                <div className="ticket-price">{ticket.price}</div>
-                <div className="ticket-description">{ticket.description}</div>
-              </div>
-            </a>
-          ))}
+        <div>
+          <div className="ticket-list">
+            {tickets.map(ticket => (
+              <a key={ticket.id} href={ticket.link}>
+                <div className="ticket">
+                  <div className="ticket-title">{ticket.title.rendered}</div>
+                  <div className="ticket-price">{ticket.price}</div>
+                  <div className="ticket-description">{ticket.description}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: page.content.rendered
+            }}
+          />
         </div>
       )
     } else {

@@ -63,7 +63,7 @@ class Pages extends Component {
       case 'kuenstler':
         return <ArtistList />
       case 'tickets':
-        return <Tickets />
+        return <Tickets page={page} />
       case 'faq':
         return <Faq />
       default:

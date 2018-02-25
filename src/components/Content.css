@@ -1,4 +1,4 @@
-.content {
+.content-wrapper {
   position: relative;
 }
 .overlay-wrapper {
@@ -6,9 +6,6 @@
   max-width: 700px;
   margin: 0 auto;
   overflow: hidden;
-}
-.page-wrapper {
-  // background-color: #fff;
 }
 .footer-wrapper {
   background-color: #fff;

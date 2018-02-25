@@ -17,7 +17,7 @@ const Content = props => {
     ? props.pages.find(page => page.slug === 'impressum')
     : null
   return (
-    <div className="content">
+    <div className="content-wrapper">
       <Element id={PAGE_TOP} name={PAGE_TOP} className="overlay-wrapper">
         <Overlay />
       </Element>

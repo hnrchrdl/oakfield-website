@@ -45,3 +45,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.content {
+  font-family: 'Calluna Regular', serif;
+  font-size: 1.3em;
+  text-align: justify;
+  text-justify: newspaper;
+}
