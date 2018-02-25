@@ -12,6 +12,7 @@
 }
 .faq .title {
   font-size: 2.4em;
+  cursor: pointer;
 }
 
 .faq .content {
@@ -19,7 +20,17 @@
   font-size: 1.3em;
   text-align: justify;
   text-justify: newspaper;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
+.faq .content.hidden {
+  font-size: 0;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  /* fade out, then shrink */
+}
+
 .featured-image {
   width: 100%;
 }

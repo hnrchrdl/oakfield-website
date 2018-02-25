@@ -11,7 +11,8 @@ export default class Faq extends Component {
   state = {
     faq: null,
     error: null,
-    loading: true
+    loading: true,
+    showing: 0
   }
   componentDidMount() {
     getFAQ()
@@ -37,15 +38,18 @@ export default class Faq extends Component {
     if (faqList.length > 0) {
       return (
         <div className="faq-container">
-          {faqList.map(faq => (
+          {faqList.map((faq, idx) => (
             <div key={faq.id}>
               <div className="faq">
                 <div
+                  onClick={_ => this.setState({ showing: idx })}
                   className="title"
                   dangerouslySetInnerHTML={{ __html: faq.title.rendered }}
                 />
                 <div
-                  className="content"
+                  className={`content ${
+                    this.state.showing === idx ? ' shown' : ' hidden'
+                  }`}
                   dangerouslySetInnerHTML={{ __html: faq.content.rendered }}
                 />
               </div>
