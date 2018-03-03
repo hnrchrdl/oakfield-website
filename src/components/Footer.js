@@ -3,14 +3,14 @@ import './Footer.css'
 import React, { Component } from 'react'
 import { getMedienpartner, getSponsoren } from '../utils/api'
 
-import Impressum from './Impressum'
+import DefaultPage from './DefaultPage'
 import Modal from './Modal'
 
 export default class Footer extends Component {
   state = {
     sponsors: [],
     partners: [],
-    showImpressum: false
+    showModalName: null
   }
 
   componentDidMount() {
@@ -24,6 +24,7 @@ export default class Footer extends Component {
     )
   }
   render() {
+    console.log(this.state.showModalName)
     return (
       <div className="footer">
         <div className="container">
@@ -49,27 +50,49 @@ export default class Footer extends Component {
             Alle Rechte vorbehalten © 2018 Oakfield Festival.
           </div>
           <div className="info-text links">
-            <a href="#">Kontakt</a> |
+            <a href=""
+              onClick={e => {
+                e.preventDefault()
+                this.setState({ showModalName: 'kontakt' })
+              }}>Kontakt</a> |
             <a
               href=""
               onClick={e => {
                 e.preventDefault()
-                this.setState({ showImpressum: true })
+                this.setState({ showModalName: 'impressum' })
               }}
             >
               Impressum
-            </a>{' '}
-            |
-            <a href="#">Datenschutz</a> |
-            <a href="#">Presse</a> |
-            <a href="#">AGB</a>
+            </a> |
+            <a href=""
+              onClick={e => {
+                e.preventDefault()
+                this.setState({ showModalName: 'datenschutz' })
+              }}
+            >Datenschutz</a> |
+            <a href=""
+              onClick={e => {
+                e.preventDefault()
+                this.setState({ showModalName: 'datenschutz' })
+              }}
+            >Presse</a> |
+            <a href=""
+              onClick={e => {
+                e.preventDefault()
+                this.setState({ showModalName: 'datenschutz' })
+              }}
+            > AGB</a>
           </div>
         </div>
-        {this.state.showImpressum && (
+        {this.state.showModalName && (
           <Modal
-            handleModalClose={_ => this.setState({ showImpressum: false })}
+            handleModalClose={_ => this.setState({
+              showModalName: null
+            })}
           >
-            <Impressum page={this.props.impressum} />
+            <div className="container">
+              <DefaultPage page={this.props[this.state.showModalName]} />
+            </div>
           </Modal>
         )}
       </div>

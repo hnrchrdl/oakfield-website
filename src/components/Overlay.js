@@ -7,6 +7,7 @@ import {
   SCROLL_SMOOTHING
 } from '../env'
 
+import Bands from '../graphics/overlay-bands'
 import CallToAction from '../graphics/icon-call-to-action'
 import CallToActionInfo from '../graphics/icon-call-to-action-info'
 import Date from '../graphics/overlay-date'
@@ -20,12 +21,15 @@ import Logo from '../graphics/overlay-logo'
 import React from 'react'
 
 export default _ => (
-  <div className="overlay">
+  <div id="overlay">
     <div className="overlay-item logo">
       <Logo />
     </div>
     <div className="overlay-item date">
       <Date />
+    </div>
+    <div className="overlay-item bands">
+      <Bands />
     </div>
     <div className="overlay-item social-media">
       <div className="icon facebook">
@@ -54,10 +58,7 @@ export default _ => (
         <CallToAction />
       </a>
     </div>
-    <div className="overlay-item call-to-action-info">
-      <CallToActionInfo />
-    </div>
-    <div className="overlay-item more">
+    {/* <div className="overlay-item more">
       <Link
         to={PAGE_WRAPPER}
         className="link"
@@ -68,6 +69,6 @@ export default _ => (
       >
         <IconArrowDown />
       </Link>
-    </div>
+    </div> */}
   </div>
 )

@@ -7,6 +7,8 @@ import Error from './Error'
 import Loading from './Loading'
 import { PAGE_TOP } from '../env'
 import StaticTeaser from './StaticTeaser'
+import Toastr from './Toastr'
+import { sendBewerbung } from '../utils/api'
 
 const WAIT_START_SCREEN_MIN = 1000
 
@@ -17,7 +19,8 @@ class App extends Component {
       error: null,
       app: null,
       scrolled: false,
-      pages: null
+      pages: null,
+      toastrMessages: []
     }
   }
 
@@ -31,6 +34,7 @@ class App extends Component {
         waitTime = waitTime < 0 ? 0 : waitTime
         setTimeout(_ => {
           this.setState({ app: setup, pages: pages })
+          registerForms(this);
         }, waitTime)
       })
       .catch(error => {
@@ -74,10 +78,11 @@ class App extends Component {
                 mainMenu={this.state.app.mainMenu}
                 socialMenu={this.state.app.socialMenu}
                 handleSetActive={((id, element) =>
-                  this.handleSetActive(id, element, history)).bind(this)}
+                  this.handleSetActive(id, element, history))}
                 scrolled={this.state.scrolled}
                 pages={this.state.pages}
               />
+              <Toastr messages={this.state.toastrMessages} />
             </div>
           )}
         />
@@ -90,6 +95,84 @@ class App extends Component {
   renderLoading() {
     return <Loading />
   }
+  showToastr(message, { error = false } = {}) {
+    this.setState(state => {
+      return {
+        toastrMessages: [...state.toastrMessages, { message, error }]
+      }
+    })
+    setTimeout(_ => {
+      this.setState(state => {
+        if (state.toastrMessages.length > 1) {
+          return {
+            toastrMessages: state.toastrMessages.filter((item, idx) => idx !== 0)
+          }
+        }
+        return {
+          toastrMessages: []
+        }
+      })
+    }, 5000);
+  }
 }
 
 export default App
+
+function registerForms(component) {
+  setTimeout(_ => {
+    console.log('register wpcf7 forms')
+    const forms = document.querySelectorAll('.wpcf7 form')
+    forms.forEach(form => {
+      if (form.attachEvent) {
+        form.attachEvent("submit", (e) => processForm(e, form))
+      } else {
+        form.addEventListener("submit", (e) => processForm(e, form))
+      }
+    });
+  }, 5000)
+  function processForm(e, form) {
+    if (e.preventDefault) e.preventDefault()
+    const formData = new FormData(form)
+    if (formData.get('_wpcf7') === '2895') {
+      if (!formData.get('accept[]')) {
+        component.showToastr('Bitte Teilnahmebedinungen akzeptieren.', { error: true });
+      }
+      else if (!formData.get('band-name')) {
+        component.showToastr('Bitte Bandnamen angeben.', { error: true });
+      }
+      else if (!formData.get('your-name')) {
+        component.showToastr('Bitte Ansprechpartner angeben.', { error: true });
+      }
+      else if (!formData.get('email')) {
+        component.showToastr('Bitte Email angeben.', { error: true });
+      }
+      else if (!formData.get('link')) {
+        component.showToastr('Bitte Song-Link angeben.', { error: true });
+      }
+      else if (!formData.get('plz')) {
+        component.showToastr('Bitte Postleitzahl angeben.', { error: true });
+      }
+      else if (!formData.get('bl')) {
+        component.showToastr('Bitte Bundesland angeben.', { error: true });
+      }
+      else if (!formData.get('text')) {
+        component.showToastr('Bitte Vorstellungstext angeben.', { error: true });
+      }
+      else {
+        const formDataObj = {};
+        for (const [key, value] of formData.entries()) {
+          formDataObj[key] = value;
+        }
+        sendBewerbung({ data: formDataObj }).then(_ => {
+          form.reset();
+          component.showToastr('Bewerbung erfolgreich versandt.');
+        })
+      }
+    }
+    /* do what you want with the form */
+
+    // You must return false to prevent the default form behavior
+    return false;
+  }
+
+}

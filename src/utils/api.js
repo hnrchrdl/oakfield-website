@@ -5,6 +5,7 @@ import {
   MEDIENPARTNER_PATH,
   NEWS_PATH,
   PAGES_PATH,
+  SEND_BEWERBUNG_PATH,
   SETUP_PATH,
   SPONSOR_PATH,
   TICKET_PATH
@@ -106,4 +107,9 @@ export const getMedienpartner = _ => {
       console.error('Api: Error when fetching mediapartner', error)
       throw error
     })
+}
+export const sendBewerbung = formData => {
+  console.log(formData)
+  return axios
+    .post(BASE_URL + SEND_BEWERBUNG_PATH, formData);
 }

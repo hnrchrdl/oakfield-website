@@ -2,7 +2,6 @@ import './Faq.css'
 
 import React, { Component } from 'react'
 
-import { BASE_URL } from '../env'
 import Error from './Error'
 import Loading from './Loading'
 import { getFAQ } from '../utils/api'
@@ -49,7 +48,7 @@ export default class Faq extends Component {
                 <div
                   className={`content ${
                     this.state.showing === idx ? ' shown' : ' hidden'
-                  }`}
+                    }`}
                   dangerouslySetInnerHTML={{ __html: faq.content.rendered }}
                 />
               </div>

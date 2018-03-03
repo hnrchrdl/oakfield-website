@@ -1,4 +1,5 @@
 import React from 'react'
+
 const style = {
   fill: '#ffffff',
   fillOpacity: 1,
@@ -10,7 +11,7 @@ export default () => (
     xmlns="http://www.w3.org/2000/svg"
     version="1.1"
     id="svg2"
-    width="100%"
+    height="100%"
     viewBox="0 0 63.998663 63.999999"
   >
     <g

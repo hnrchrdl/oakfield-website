@@ -1,0 +1,22 @@
+.toastr-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 1.5em;
+    transition: all .3s ease-in-out;
+}
+.toastr {
+    padding: 30px;
+}
+.toastr-container.hidden {
+    transform: translateY(100%);
+}
+.toastr.toastr-success {
+    background-color: #7daa00;
+}
+.toastr.toastr-error {
+    background-color: #ab0018;
+}

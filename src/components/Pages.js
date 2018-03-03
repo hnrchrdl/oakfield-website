@@ -9,7 +9,6 @@ import Faq from './Faq'
 import Loading from './Loading'
 import NewsList from './NewsList'
 import Tickets from './Tickets'
-import { getPages } from '../utils/api'
 
 class Pages extends Component {
   render() {
@@ -40,10 +39,10 @@ class Pages extends Component {
                   {this.renderPageContent(menuItem.page)}
                 </div>
               ) : (
-                <div className="container error">
-                  Seite {menuItem.title} konnte nicht gefunden werden.
+                  <div className="container error">
+                    Seite {menuItem.title} konnte nicht gefunden werden.
                 </div>
-              )}
+                )}
             </div>
             <div className="page-pusher" />
             {/* {idx !== menu.length - 1 && <div className="divider" />} */}

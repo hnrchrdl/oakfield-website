@@ -5,6 +5,8 @@ import React from 'react'
 
 export default props => {
   if (props.artist) {
+    console.log(props.artist)
+    const ytLinks = props.artist.youtube_url.split(',')
     return (
       <Modal handleModalClose={props.handleArtistInfoHide}>
         <div className="container">
@@ -23,6 +25,21 @@ export default props => {
                 __html: props.artist.content.rendered
               }}
             />
+            {ytLinks.map((link, idx) => (
+              <div key={idx} class="artist-info-content">
+                <div class="video-container">
+                  <iframe
+                    class="video"
+                    width="560"
+                    height="315"
+                    src={link}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </Modal>

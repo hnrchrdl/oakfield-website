@@ -1,4 +1,5 @@
 import React from 'react'
+
 const defaultStyle = {
   fill: '#ffffff',
   fillOpacity: 1,
@@ -28,5 +29,7 @@ export default props => {
         </g>
       </g>
     </svg>
+
+
   )
 }

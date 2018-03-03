@@ -12,7 +12,7 @@ export default () => (
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 129 129"
-    width="100%"
+    height="100%"
   >
     <g>
       <path

@@ -9,6 +9,7 @@ export const TICKET_PATH = '/wp-json/wp/v2/tickets'
 export const FAQ_PATH = '/wp-json/wp/v2/faq_post'
 export const SPONSOR_PATH = '/wp-json/wp/v2/sponsoren'
 export const MEDIENPARTNER_PATH = '/wp-json/wp/v2/medienpartner'
+export const SEND_BEWERBUNG_PATH = '/wp-json/oakfield/v1/sendbewerbung'
 
 // Link behavior
 export const SCROLL_OFFSET = -60
