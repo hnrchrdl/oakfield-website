@@ -144,10 +144,13 @@ function registerForms(component) {
         component.showToastr('Bitte Ansprechpartner angeben.', { error: true });
       }
       else if (!formData.get('email')) {
-        component.showToastr('Bitte Email angeben.', { error: true });
+        component.showToastr('Keine Email angegeben.', { error: true });
+      }
+      else if (!/^[\w._-]+[+]?[\w._-]+@[\w.-]+\.[a-zA-Z]{2,6}$/.test(formData.get('email'))) {
+        component.showToastr('Keine gültige Email-Adresse.', { error: true });
       }
       else if (!formData.get('link')) {
-        component.showToastr('Bitte Song-Link angeben.', { error: true });
+        component.showToastr('Bitte Link zum Bewerbungssong angeben.', { error: true });
       }
       else if (!formData.get('plz')) {
         component.showToastr('Bitte Postleitzahl angeben.', { error: true });
@@ -165,7 +168,9 @@ function registerForms(component) {
         }
         sendBewerbung({ data: formDataObj }).then(_ => {
           form.reset();
-          component.showToastr('Bewerbung erfolgreich versandt.');
+          component.showToastr('Deine Bewerbung wurde erfolgreich versandt!');
+        }, (err) => {
+          component.showToastr('Mailversand leider nicht erfolgreich. Bitte erneut versuchen.', { error: true });
         })
       }
     }

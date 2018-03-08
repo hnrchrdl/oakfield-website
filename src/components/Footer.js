@@ -24,7 +24,6 @@ export default class Footer extends Component {
     )
   }
   render() {
-    console.log(this.state.showModalName)
     return (
       <div className="footer">
         <div className="container">

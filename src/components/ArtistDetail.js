@@ -9,8 +9,8 @@ export default props => (
         className="artist-image"
         style={{
           backgroundImage: `url(${
-            props.artist.featured_image.available_sizes.medium
-          })`,
+            props.artist.featured_image.available_sizes.large[0]
+            })`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           backgroundSize: 'cover'

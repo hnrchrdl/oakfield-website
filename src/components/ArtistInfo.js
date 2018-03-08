@@ -17,7 +17,7 @@ export default props => {
           <div className="artist-info-wrapper">
             <img
               className="artist-info-image"
-              src={props.artist.featured_image.available_sizes.medium}
+              src={props.artist.featured_image.available_sizes.large[0]}
             />
             <div
               className="artist-info-content"

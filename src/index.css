@@ -54,24 +54,43 @@ a:hover {
 .content h1, .content h2, .content h3, .content h4, .content h5 {
   font-family: 'AlternateGothicFSNo2', 'Arial Narrow', 'Arial', sans-serif;
 }
-.wpcf7-form label, .wpcf7-list-item-label, input, textarea {
+form label, .wpcf7-list-item-label, input, textarea {
   font-family: 'AlternateGothicFSNo2', 'Arial Narrow', 'Arial', sans-serif;
   /* font-size: 0.8em; */
 }
-.wpcf7-form p {
-  width: 51%;
+form p {
+  display: inline-block;
+  width: 48%;
 }
-.wpcf7-form input,
-.wpcf7-form textarea {
+
+@media screen and (max-width: 1200px) {
+  form p {
+    width: 100%;
+    
+  }
+}
+input,
+textarea {
+  box-sizing: border-box;
   width: 100%;
-  border: 1px solid #7daa00;
+  border: 2px solid #222;
   padding: 15px;
 }
-.wpcf7-form input[type='submit'] {
+input:focus,
+textarea:focus {
+  border: 2px solid #7daa00;
+  outline: none;
+}
+input[type='submit'] {
   border: none;
   cursor: pointer;
+  background-color: #222;
+  color: #fff;
 }
-.wpcf7-form input[type='checkbox'] {
+input[type='submit']:hover {
+  background-color: #7daa00;
+}
+input[type='checkbox'] {
   width: auto;
   margin: 0 20px 0 0;
 }
