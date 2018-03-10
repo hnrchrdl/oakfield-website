@@ -33,7 +33,9 @@ export default class Footer extends Component {
           <div className="image-container sponsors">
             {(this.state.sponsors || []).map(sponsor => (
               <div className="image" key={sponsor.id}>
-                <img src={sponsor.featured_image.url} />
+                <a href={sponsor.link}>
+                  <img src={sponsor.featured_image.url} />
+                </a>
               </div>
             ))}
           </div>
@@ -41,7 +43,9 @@ export default class Footer extends Component {
           <div className="image-container partner">
             {(this.state.partners || []).map(partner => (
               <div className="image" key={partner.id}>
-                <img src={partner.featured_image.url} />
+                <a href={partner.link}>
+                  <img src={partner.featured_image.url} />
+                </a>
               </div>
             ))}
           </div>
@@ -72,13 +76,13 @@ export default class Footer extends Component {
             <a href=""
               onClick={e => {
                 e.preventDefault()
-                this.setState({ showModalName: 'datenschutz' })
+                this.setState({ showModalName: 'presse' })
               }}
             >Presse</a> |
             <a href=""
               onClick={e => {
                 e.preventDefault()
-                this.setState({ showModalName: 'datenschutz' })
+                this.setState({ showModalName: 'agb' })
               }}
             > AGB</a>
           </div>

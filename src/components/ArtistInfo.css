@@ -9,11 +9,31 @@
   text-justify: newspaper;
   margin-bottom: 20px;
 }
-
-.artist-info-image {
+@media screen and (max-width: 1000px) {
+  .artist-info-content {
+    width: 100%;
+    margin: 0 0 30px;
+  }
+}
+.artist-info-image-wrapper {
   float: right;
   width: 33.3%;
   position: relative;
+  margin: 0 0 30px;
+}
+@media screen and (max-width: 1000px) {
+  .artist-info-image-wrapper {
+    width: 100%;
+  }
+}
+.artist-info-image {
+  width: 100%;
+}
+.artist-info-links {
+  padding: 20px 0;
+  display: flex;
+  font-size: 1.2em;
+  justify-content: space-around;
 }
 .video-container {
   position: relative;

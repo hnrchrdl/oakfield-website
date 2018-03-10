@@ -65,7 +65,9 @@ export class Header extends Component {
   }
 
   hideMenu() {
-    this.setState({ showMenu: false })
+    setTimeout(_ => {
+      this.setState({ showMenu: false })
+    }, 100)
   }
 
   showMenu() {
@@ -96,7 +98,7 @@ export class Header extends Component {
                   item.ID === PAGE_TOP || item.ID === PAGE_HEADER
                     ? ' hidden'
                     : ''
-                }`}
+                  }`}
               >
                 <Link
                   activeClass="active"

@@ -30,11 +30,11 @@
 }
 
 #overlay .logo {
-  height: 25%
+  height: 24%
 }
 
 #overlay .date {
-  height: 15%
+  height: 18%
 }
 
 #overlay .info {
@@ -46,7 +46,7 @@
 }
 
 #overlay .call-to-action {
-  height: 25%
+  height: 23%
 }
 #overlay .more {
   position: absolute;

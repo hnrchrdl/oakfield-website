@@ -10,7 +10,7 @@ import StaticTeaser from './StaticTeaser'
 import Toastr from './Toastr'
 import { sendBewerbung } from '../utils/api'
 
-const WAIT_START_SCREEN_MIN = 1000
+const WAIT_START_SCREEN_MIN = 0
 
 class App extends Component {
   constructor(props) {
@@ -47,11 +47,6 @@ class App extends Component {
     // if id of target element is not page-top or header
     // the app is considered to be scrolled, e.g. the main content is shown
     this.setState({ scrolled: id !== PAGE_TOP })
-    // if (id !== PAGE_TOP) {
-    //   history.push('/')
-    // } else {
-    //   //history.push(`/${id}`)
-    // }
   }
 
   render() {
@@ -120,7 +115,6 @@ export default App
 
 function registerForms(component) {
   setTimeout(_ => {
-    console.log('register wpcf7 forms')
     const forms = document.querySelectorAll('.wpcf7 form')
     forms.forEach(form => {
       if (form.attachEvent) {
@@ -130,6 +124,7 @@ function registerForms(component) {
       }
     });
   }, 5000)
+
   function processForm(e, form) {
     if (e.preventDefault) e.preventDefault()
     const formData = new FormData(form)

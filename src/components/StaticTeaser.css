@@ -8,38 +8,6 @@
   right: 0;
   overflow: hidden;
 }
-/* 
-#teaser-vid {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  overflow: hidden;
-}
-/* .teaser-container {
-  position: relative; padding-bottom: 56.25%; /* 16:9 */ 
-  /* padding-top: 25px;
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  overflow: hidden;
-} */
-/* .video {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-} */
 
 .video-background {
   background: #000;
@@ -68,4 +36,11 @@
 }
 @media all and (max-width: 500px) {
 .vid-info .acronym { display: none; }
+}
+.static-teaser-img {
+  height: 100%;
+  background-image: url('http://oakfieldbeta.hnrch.de/wp-content/uploads/2018/03/og_graph_startseite-1024x538.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }

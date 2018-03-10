@@ -16,6 +16,18 @@ const Content = props => {
   const impressum = props.pages
     ? props.pages.find(page => page.slug === 'impressum')
     : null
+  const datenschutz = props.pages
+    ? props.pages.find(page => page.slug === 'datenschutz')
+    : null
+  const agb = props.pages
+    ? props.pages.find(page => page.slug === 'agb')
+    : null
+  const presse = props.pages
+    ? props.pages.find(page => page.slug === 'presse')
+    : null
+  const kontakt = props.pages
+    ? props.pages.find(page => page.slug === 'kontakt')
+    : null
   return (
     <div className="content-wrapper">
       <Element id={PAGE_TOP} name={PAGE_TOP} className="overlay-wrapper">
@@ -46,7 +58,7 @@ const Content = props => {
         />
       ))}
       <div className="footer-wrapper">
-        <Footer impressum={impressum} />
+        <Footer kontakt={kontakt} impressum={impressum} agb={agb} presse={presse} datenschutz={datenschutz} />
       </div>
     </div>
   )
