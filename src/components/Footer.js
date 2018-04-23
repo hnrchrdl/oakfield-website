@@ -72,19 +72,19 @@ export default class Footer extends Component {
                 e.preventDefault()
                 this.setState({ showModalName: 'datenschutz' })
               }}
-            >Datenschutz</a> |
-            <a href=""
+            >Datenschutz</a>
+            {/* <a href=""
               onClick={e => {
                 e.preventDefault()
                 this.setState({ showModalName: 'presse' })
               }}
-            >Presse</a> |
-            <a href=""
+            >Presse</a> | */}
+            {/* <a href=""
               onClick={e => {
                 e.preventDefault()
                 this.setState({ showModalName: 'agb' })
               }}
-            > AGB</a>
+            > AGB</a> */}
           </div>
         </div>
         {this.state.showModalName && (

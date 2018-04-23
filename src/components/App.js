@@ -40,6 +40,18 @@ class App extends Component {
       .catch(error => {
         this.setState({ error })
       })
+
+    // Google Analytics
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17430202-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
   }
 
   handleSetActive(id, element, history) {
@@ -47,6 +59,12 @@ class App extends Component {
     // if id of target element is not page-top or header
     // the app is considered to be scrolled, e.g. the main content is shown
     this.setState({ scrolled: id !== PAGE_TOP })
+
+    // Google Analytics
+    if (typeof window.ga === 'function') {
+      window.ga('set', 'page', id);
+      window.ga('send', 'pageview');
+    }
   }
 
   render() {

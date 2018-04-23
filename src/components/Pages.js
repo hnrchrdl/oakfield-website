@@ -32,18 +32,20 @@ class Pages extends Component {
             id={`page-${menuItem.object_id}`}
             name={menuItem.ID.toString()}
           >
-            <div className="page">
-              {menuItem.page ? (
-                <div className="container">
-                  {this.renderPageTitle(menuItem.page.title.rendered)}
-                  {this.renderPageContent(menuItem.page)}
-                </div>
-              ) : (
+            {menuItem.page.slug != 'partner' && (
+              <div className="page">
+                {menuItem.page ? (
+                  <div className="container">
+                    {this.renderPageTitle(menuItem.page.title.rendered)}
+                    {this.renderPageContent(menuItem.page)}
+                  </div>
+                ) : (
                   <div className="container error">
                     Seite {menuItem.title} konnte nicht gefunden werden.
-                </div>
+                  </div>
                 )}
-            </div>
+              </div>
+            )}
             <div className="page-pusher" />
             {/* {idx !== menu.length - 1 && <div className="divider" />} */}
           </Element>
@@ -53,7 +55,7 @@ class Pages extends Component {
   }
 
   renderPageTitle(title) {
-    return <h1 className="title">{title}</h1>
+    return title != 'Partner' ? <h1 className="title">{title}</h1> : null
   }
   renderPageContent(page) {
     switch (page.slug) {
@@ -65,6 +67,8 @@ class Pages extends Component {
         return <Tickets page={page} />
       case 'faq':
         return <Faq />
+      case 'partner':
+        return null
       default:
         return <DefaultPage page={page} />
     }
