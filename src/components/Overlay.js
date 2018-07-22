@@ -35,12 +35,18 @@ export default _ => (
     </div>
     <div className="overlay-item social-media">
       <div className="icon youtube">
-        <a href="https://www.youtube.com/playlist?list=PLclkSsMLGD6plI6F5x_7KRb-9dEHiFvRK" target="_blank">
+        <a
+          href="https://www.youtube.com/playlist?list=PLclkSsMLGD6plI6F5x_7KRb-9dEHiFvRK"
+          target="_blank"
+        >
           <IconYoutube />
         </a>
       </div>
       <div className="icon spotify">
-        <a href="https://open.spotify.com/user/oakfieldfestival/playlist/4K154s8U6Rgtu8e4n8bEA6" target="_blank">
+        <a
+          href="https://open.spotify.com/user/oakfieldfestival/playlist/4K154s8U6Rgtu8e4n8bEA6"
+          target="_blank"
+        >
           <IconSpotify />
         </a>
       </div>
@@ -66,7 +72,7 @@ export default _ => (
       </div>
     </div>
     <div className="overlay-item call-to-action">
-      <a href="https://tinyurl.com/Oakfield2018tickets" target="_blank">
+      <a href="https://www.grandticket.de/Event/book/72631/" target="_blank">
         <CallToAction />
       </a>
     </div>

@@ -32,7 +32,11 @@ export default class ArtistList extends Component {
     getArtists()
       .then(artists => {
         const loading = false
-        this.setState({ artists, loading })
+        const sortedArtists = artists
+          .sort((a, b) => parseInt(a.prio || 0) - parseInt(b.prio || 0))
+          .reverse()
+        console.log(sortedArtists)
+        this.setState({ artists: sortedArtists, loading })
       })
       .catch(error => this.setState({ error }))
   }
